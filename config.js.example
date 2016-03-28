@@ -41,7 +41,10 @@ var config = {
                   }
                 },
                 "bilibili_appkey": "",
-                "usebilibili": false
+                "usebilibili": false,
+                'yiliuliang': '',
+                'yiliuliang_user': '',
+                'yiliuliang_pwd': ''
               };
 
 module.exports = config;
