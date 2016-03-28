@@ -1,0 +1,73 @@
+﻿<div class="box">
+  <p class="p1">广东移动流量充值</p>
+  <form class="forms">
+    <div class="forms-i">
+      <label><img src="/images/input.jpg" /></label><input id="mobile" class="int" maxlength="11" type="tel" placeholder="手机号码" />
+    </div>
+  </form>
+  <div class="con">
+    <div class="llb">
+    </div>
+    <div class="subimts"><a>充值</a></div>
+    <div class="careful">
+      <h3>注意事项：</h3>
+      <p>1，【流量类型】：广东省内通用网络流量，不分时段。</p>
+      <p>2，【注意事项】：广东移动50M、100M、200M属于省内流量红包产品，有效期为20天。</p>
+      <p>3，【到账时间】：即时到帐，务必填写正确手机号码。</p>
+      <p>4，【失败退款】：系统自动退款，见微信退款通知。</p>
+      <p>5，【特殊情况】：不支持无限宽带，时长计费用户。</p>
+    </div>
+  </div>
+</div>
+{{> alertmodal }}
+{{> extractConfirm }}
+{{> loading }}
+
+<script id="trafficplans-template" type="text/x-handlebars-template">
+\{{#each trafficgroups}}
+  <ul class="tab">
+  \{{#each trafficplans}}
+    <li \{{#if @first}}class="curr"\{{/if}}><a class="exchanger \{{#if @first}}choose\{{/if}}" data-name="\{{name}}" data-value="\{{id}}" data-cost="\{{cost}}">\{{name}}</a></li>
+  \{{/each}}
+  </ul>
+  <div class="price">
+  \{{#each trafficplans}}
+    <p \{{#if @first}}class="curr"\{{/if}} id="price-\{{id}}">价格：￥\{{cost}}</p>
+  \{{/each}}
+  </div>
+\{{/each}}
+</script>
+
+<script id="err-template" type="text/x-handlebars-template">
+<div class="container-fluid" style="padding-top: 10px;">
+  <div class="row">
+    <div class="col-lg-10 col-lg-offset-1 col-sm-8">
+      <div class="panel panel-info">
+        <div class="panel-body">
+            <h5 class="no_data_found_h">
+              \{{msg}}
+            </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</script>
+
+<script type="text/javascript">
+$(function(){
+  $(document).on("click", ".tab li", function(){
+    var $this = $(this)
+    if(!$this.hasClass("curr")){
+      var exchanger = $this.find(".exchanger")
+      $this.parent().find("li").removeClass("curr")
+      $this.addClass("curr")
+      $(".price p").removeClass("curr")
+      $(".tab a.choose").removeClass("choose")
+      exchanger.addClass("choose")
+      $("#price-"+exchanger.data("value")).addClass("curr")
+    }
+  })
+})
+
+</script>

@@ -1,0 +1,16 @@
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+
+/* focus style */
+:focus, a:focus, a:active{ outline: 0; }
+
+ins{ text-decoration: none; }
+del{ text-decoration: line-through; }
+
+/* table */
+table{border-collapse: collapse; border-spacing: 0;}
+
+/* clear */
+.clear{clear:both;}
+.clear-l{clear:left;}
+.clear-r{clear:right;}

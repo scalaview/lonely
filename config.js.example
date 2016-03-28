@@ -1,0 +1,47 @@
+var config = {
+                'token': '',  //公众平台
+                'appId': '',  // 公众平台
+                'aesKey': '',  // 公众平台
+                'appSecret': '',  // 公众平台
+                'apikey': '',  // 短信平台
+                'yunpian': '',  // 短信平台
+                'partnerKey' :'', //微信支付
+                'mchId': '',  // 微信支付
+                'user': '',
+                'pwd' : '',
+                'yunma' : '',
+                'did' : '',
+                'umeolKey' : '',
+                'umeolUrl' : '',
+                'umeolRechargeUrl' : '',
+                'upload_path': '/public/uploads/',
+                'hostname': '',
+                'maxfileuploadsize': 10240000, // 10m
+                'max_depth': 3,
+                'applylimit': ,
+                'blacklist': ,
+                'mindiscount': ,
+                'huawo_account': '',
+                'huawo_pwd': '',
+                'huawo_hostname': '',
+                'huawo_lucky_account': '',
+                'huawo_lucky_pwd': '',
+                'huawo_province_account': '',
+                'huawo_province_pwd': '',
+                'chong': { //曦和流量
+                  'development': {
+                    'hostname': '',
+                    'client_id': '',
+                    'client_secret': ''
+                  },
+                  'production': {
+                    'hostname': '',
+                    'client_id': '',
+                    'client_secret': ''
+                  }
+                },
+                "bilibili_appkey": "",
+                "usebilibili": false
+              };
+
+module.exports = config;

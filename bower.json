@@ -1,0 +1,28 @@
+{
+  "name": "yiweixin",
+  "version": "0.0.0",
+  "homepage": "https://github.com/scalaview/yiweixin",
+  "authors": [
+    "benko"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5",
+    "kindeditor": "https://github.com/kindsoft/kindeditor.git#~4.1.10",
+    "bootstrap-datepicker": "https://github.com/eternicode/bootstrap-datepicker.git#~1.4.0",
+    "requirejs": "jrburke/requirejs#~2.1.20",
+    "handlebars": "~3.0.3",
+    "select2": "~4.0.0",
+    "weui": "*",
+    "toastr": "~2.1.2",
+    "video.js": "^5.8.2"
+  }
+}
