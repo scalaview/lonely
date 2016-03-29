@@ -63,31 +63,23 @@ app.use('/wechat', wechat(wechatConfig, function (req, res, next) {
       }
     })
 
+  }else if(message.Event == 'VIEW' && message.EventKey ){
+    res.reply(message.EventKey)
   }else{
-    models.WechatMenu.findOne({
-      where: {
-        key: message.EventKey
-      }
-    }).then(function(menu) {
-      if(menu){
-        res.reply(menu.url)
-      }else{
-
-        models.MessageTemplate.findOrCreate({
-          where: {
-            name: "defaultReply"
-          },
-          defaults: {
-            content: "欢迎使用"
-          }
-        }).spread(function(template) {
-          var content = template.content
-          res.reply(content)
-        }).catch(function(err) {
-          res.reply('欢迎使用')
-        })
-      }
-    })
+    models.MessageTemplate.findOrCreate({
+        where: {
+          name: "defaultReply"
+        },
+        defaults: {
+          content: "欢迎使用"
+        }
+      }).spread(function(template) {
+        var content = template.content
+        res.reply(content)
+      }).catch(function(err) {
+        res.reply('欢迎使用')
+      })
+    }
   }
 }))
 
