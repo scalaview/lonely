@@ -26,13 +26,16 @@
 <script id="trafficplans-template" type="text/x-handlebars-template">
 \{{#each trafficgroups}}
   <ul class="tab">
+  <h4>\{{name}}</h4>
   \{{#each trafficplans}}
-    <li \{{#if @first}}class="curr"\{{/if}}><a class="exchanger \{{#if @first}}choose\{{/if}}" data-name="\{{name}}" data-value="\{{id}}" data-cost="\{{cost}}">\{{name}}</a></li>
+    <li \{{#if_all @../first @first }}class="curr"\{{/if_all}}><a class="exchanger \{{#if_all @../first @first }}choose\{{/if_all}}" data-name="\{{name}}" data-value="\{{id}}" data-cost="\{{cost}}">\{{name}}</a></li>
   \{{/each}}
   </ul>
+\{{/each}}
+\{{#each trafficgroups}}
   <div class="price">
   \{{#each trafficplans}}
-    <p \{{#if @first}}class="curr"\{{/if}} id="price-\{{id}}">价格：￥\{{cost}}</p>
+    <p \{{#if_all @../first @first }}class="curr"\{{/if_all}} id="price-\{{id}}">价格：￥\{{cost}}</p>
   \{{/each}}
   </div>
 \{{/each}}
