@@ -67,19 +67,18 @@ app.use('/wechat', wechat(wechatConfig, function (req, res, next) {
     res.reply(message.EventKey)
   }else{
     models.MessageTemplate.findOrCreate({
-        where: {
-          name: "defaultReply"
-        },
-        defaults: {
-          content: "欢迎使用"
-        }
-      }).spread(function(template) {
-        var content = template.content
-        res.reply(content)
-      }).catch(function(err) {
-        res.reply('欢迎使用')
-      })
-    }
+      where: {
+        name: "defaultReply"
+      },
+      defaults: {
+        content: "欢迎使用"
+      }
+    }).spread(function(template) {
+      var content = template.content
+      res.reply(content)
+    }).catch(function(err) {
+      res.reply('欢迎使用')
+    })
   }
 }))
 
