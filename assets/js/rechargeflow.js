@@ -98,6 +98,19 @@ function getTrafficplan(source, catName){
 
 function extractConfirm(){
 
+  $(document).on("click", ".tab li", function(){
+    var $this = $(this)
+    if(!$this.hasClass("curr")){
+      var exchanger = $this.find(".exchanger")
+      $(".tab li").removeClass("curr")
+      $this.addClass("curr")
+      $(".price p").removeClass("curr")
+      $(".tab a.choose").removeClass("choose")
+      exchanger.addClass("choose")
+      $("#price-"+exchanger.data("value")).addClass("curr")
+    }
+  })
+
   $(".subimts").on('click', function() {
     var mobile = $.trim($("#mobile").val());
     if (!isMobile(mobile)){
