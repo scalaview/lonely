@@ -108,16 +108,6 @@ function unsubscribe(message, res) {
 
 }
 
-/*
-{ ToUserName: '',
-  FromUserName: '',
-  CreateTime: '1448544827',
-  MsgType: 'event',
-  Event: 'subscribe',
-  EventKey: 'qrscene_1',
-  Ticket: 'gQEH8DoAAAAAAAAAASxodHRwOi8vd2VpeGluLnFxLmNvbS9xL20wUTlWbnptdzlHNlJ0Q0JoMmp1AAIEX7hWVgMEAAAAAA==' }
-*/
-
 
 function subscribe(message, res){
   var customerId = message.EventKey.replace('qrscene_', ''),
@@ -198,8 +188,6 @@ function subscribe(message, res){
       })
     }
   })
-
-
 }
 
 
