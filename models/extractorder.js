@@ -52,7 +52,12 @@ var YiliuliangRecharger = function(phone, typeid, orderId){
     if (!error && res.statusCode == 200) {
       if(inerSuccessCallback){
         console.log(res.body)
-        var data = JSON.parse(res.body.trim())
+        try{
+          var data = JSON.parse(res.body.trim())
+        }catch(err){
+          console.log(err)
+          var data = {}
+        }
         inerSuccessCallback.call(this, res, data)
       }
      }else{
