@@ -16,8 +16,8 @@ body {
 
 .con{ padding: 0 3%;}
 .con .tab{ width: 100%; margin-top: 20px; overflow: hidden;}
-.con .tab li{ float: left; width: 31%; border: 1px solid #dedede; background-color: #f7f7f7; border-radius: 4px; text-align: center; line-height: 3em; cursor: pointer; margin-bottom: 10px; color: #4a484d; font-weight: bold; margin-right: 2%;}
-.con .tab li:nth-child(3n){ margin-right: 0;}
+.con .tab li{ float: left; width: 23%; border: 1px solid #dedede; background-color: #f7f7f7; border-radius: 4px; text-align: center; line-height: 3em; cursor: pointer; margin-bottom: 10px; color: #4a484d; font-weight: bold; margin-right: 2%;}
+.con .tab li:nth-child(4n){ margin-right: 0;}
 .con .tab li.curr{ background-color: #00c300; color: #fff;}
 
 .price{ width: 100%;}
