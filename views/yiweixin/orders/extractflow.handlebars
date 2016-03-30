@@ -32,7 +32,6 @@
 <div class="tab-content">
   \{{#each trafficgroups}}
     <ul id="group-\{{name}}" role="tabpanel" class="tab tab-pane \{{#if @first }}active in \{{/if}} fade container-fluid">
-    <h4>\{{name}}</h4>
     \{{#each trafficplans}}
       <li \{{#if_all @../first @first }}class="curr"\{{/if_all}}><a class="exchanger \{{#if_all @../first @first }}choose\{{/if_all}}" data-name="\{{name}}" data-value="\{{id}}" data-cost="\{{cost}}">\{{name}}</a></li>
     \{{/each}}
