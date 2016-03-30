@@ -24,14 +24,21 @@
 {{> loading }}
 
 <script id="trafficplans-template" type="text/x-handlebars-template">
-\{{#each trafficgroups}}
-  <ul class="tab">
-  <h4>\{{name}}</h4>
-  \{{#each trafficplans}}
-    <li \{{#if_all @../first @first }}class="curr"\{{/if_all}}><a class="exchanger \{{#if_all @../first @first }}choose\{{/if_all}}" data-name="\{{name}}" data-value="\{{id}}" data-cost="\{{cost}}">\{{name}}</a></li>
+<ul class="nav nav-tabs" role="tablist">
+  \{{#each trafficgroups}}
+    <li role="presentation" class="\{{#if @first }}active\{{/if}} nopadding col-xs-4 col-lg-4"><a class="text-center" href="#group-\{{name}}" aria-controls="main" role="tab" data-toggle="tab">\{{name}}</a></li>
   \{{/each}}
-  </ul>
-\{{/each}}
+</ul>
+<div class="tab-content">
+  \{{#each trafficgroups}}
+    <ul id="group-\{{name}}" role="tabpanel" class="tab tab-pane \{{#if @first }}active in \{{/if}} fade container-fluid">
+    <h4>\{{name}}</h4>
+    \{{#each trafficplans}}
+      <li \{{#if_all @../first @first }}class="curr"\{{/if_all}}><a class="exchanger \{{#if_all @../first @first }}choose\{{/if_all}}" data-name="\{{name}}" data-value="\{{id}}" data-cost="\{{cost}}">\{{name}}</a></li>
+    \{{/each}}
+    </ul>
+  \{{/each}}
+</div>
 \{{#each trafficgroups}}
   <div class="price">
   \{{#each trafficplans}}
@@ -55,22 +62,4 @@
     </div>
   </div>
 </div>
-</script>
-
-<script type="text/javascript">
-$(function(){
-  $(document).on("click", ".tab li", function(){
-    var $this = $(this)
-    if(!$this.hasClass("curr")){
-      var exchanger = $this.find(".exchanger")
-      $this.parent().find("li").removeClass("curr")
-      $this.addClass("curr")
-      $(".price p").removeClass("curr")
-      $(".tab a.choose").removeClass("choose")
-      exchanger.addClass("choose")
-      $("#price-"+exchanger.data("value")).addClass("curr")
-    }
-  })
-})
-
 </script>
