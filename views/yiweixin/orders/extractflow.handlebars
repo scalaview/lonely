@@ -36,14 +36,18 @@
 <script id="trafficplans-template" type="text/x-handlebars-template">
 <ul class="nav nav-tabs" role="tablist">
   \{{#each trafficgroups}}
-    <li role="presentation" class="\{{#if @first }}active\{{/if}} nopadding col-xs-6 col-lg-6"><a class="text-center" href="#group-\{{name}}" aria-controls="main" role="tab" data-toggle="tab">\{{name}}</a></li>
+    <li role="presentation" class="\{{#if @first }}active\{{/if}} nopadding col-xs-6 col-lg-6">
+      <a class="text-center" href="#group-\{{name}}" style=":hover {color: gray}" aria-controls="main" role="tab" data-toggle="tab">\{{name}}</a>
+    </li>
   \{{/each}}
 </ul>
 <div class="tab-content">
   \{{#each trafficgroups}}
     <ul id="group-\{{name}}" role="tabpanel" class="tab tab-pane \{{#if @first }}active in \{{/if}} fade container-fluid">
     \{{#each trafficplans}}
-      <li \{{#if_all @../first @first }}class="curr"\{{/if_all}}><a class="exchanger \{{#if_all @../first @first }}choose\{{/if_all}}" data-name="\{{name}}" data-value="\{{id}}" data-cost="\{{cost}}">\{{name}}</a></li>
+      <li \{{#if_all @../first @first }}class="curr"\{{/if_all}}>
+      <a class="exchanger \{{#if_all @../first @first }}choose\{{/if_all}}" data-name="\{{name}}" data-value="\{{id}}" data-cost="\{{cost}}">\{{name}}</a>
+      </li>
     \{{/each}}
     </ul>
   \{{/each}}
