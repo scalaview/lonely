@@ -56,7 +56,7 @@ var YiliuliangRecharger = function(phone, typeid, orderId){
           var data = JSON.parse(res.body.trim())
         }catch(err){
           console.log(err)
-          var data = {}
+          var data = { Message: "充值失败"}
         }
         inerSuccessCallback.call(this, res, data)
       }
