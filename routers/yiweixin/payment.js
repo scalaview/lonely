@@ -496,6 +496,19 @@ function autoCharge(extractOrder, trafficPlan, next){
       }else{
         extractOrder.updateAttributes({
           state: models.ExtractOrder.STATE.FAIL
+        }).then(function(extractOrder){
+          var refund = {
+            out_trade_no: config.token + "_" + extractOrder.phone + "_" + extractOrder.id,
+            out_refund_no: "refund_" + extractOrder.phone + "_" + extractOrder.id,
+            total_fee: extractOrder.total * 100,
+            refund_fee: extractOrder.total * 100
+          }
+          console.log(refund)
+          payment.refund(refund, function(err, result){
+            if(err){
+              console.log(err)
+            }
+          });
         })
         next(new Error(data.Message))
       }
