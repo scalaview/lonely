@@ -883,6 +883,12 @@ function if_eq(a, b, opts) {
     return opts.inverse(this);
 }
 
+function iflt(a, b) {
+  var options = arguments[arguments.length - 1];
+  if (a < b) { return options.fn(this); }
+  else { return options.inverse(this); }
+};
+
 exports.applylimit = applylimit;
 exports.fileUpload = fileUpload;
 exports.fileUploadSync = fileUploadSync;
@@ -935,3 +941,4 @@ exports.subSummary = subSummary;
 exports.inc = inc;
 exports.nextUrl = nextUrl;
 exports.if_eq = if_eq;
+exports.iflt = iflt;
