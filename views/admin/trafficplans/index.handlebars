@@ -1,0 +1,76 @@
+<div class="row">
+  <div class='col-lg-2 pull-right'>
+    <a href="/admin/trafficplans/new">
+      <button class="btn btn-primary col-lg-12 btn-large">
+        <i class="glyphicon glyphicon-plus"></i> 新建
+      </button>
+    </a>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+          流量套餐
+      </div>
+      <!-- /.panel-heading -->
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                  <th>标题</th>
+                  <th>提供商</th>
+                  <th>花费</th>
+                  <th>成本</th>
+                  <th>流量(M)</th>
+                  <th>是否显示</th>
+                  <th>提供商</th>
+                  <th>分组</th>
+                  <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each trafficPlans.rows }}
+                <tr>
+                    <td>{{ name }}</td>
+                    <td>{{ provider }}</td>
+                    <td>{{ cost }}</td>
+                    <td>{{ purchasePrice }}</td>
+                    <td>{{ value }}</td>
+                    <td>
+                      <label>
+                        <input type="checkbox" class="displaySwich" name="display" data-id="{{id}}" {{ isChecked display }} >
+                        {{ display }}
+                      </label>
+                    </td>
+                    <td data-id="{{id}}" class="col-lg-2">
+                      {{ selectTag ../providerOptions ../providerCollection providerId }}
+                    </td>
+                    <td data-id="{{id}}" class="col-lg-2">
+                      {{ selectTag ../trafficgroupsOptions ../trafficgroupsCollection trafficGroupId }}
+                    </td>
+                    <td>
+                      <a href="/admin/trafficplans/{{id}}/edit" class="list-group-item">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                      </a>
+                    </td>
+                  </td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+        <!-- /.table-responsive -->
+
+      </div>
+
+      <div class="panel-footer">
+          {{pagination trafficPlans '/admin/trafficplans'}}
+      </div>
+      <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+  </div>
+</div>

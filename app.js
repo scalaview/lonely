@@ -113,10 +113,21 @@ app.all("*", function(req, res, next) {
   next()
 })
 
+app.use('/admin', function (req, res, next) {
+  res.locals.layout = 'admin';
+  next();
+});
 
 var yiweixin  = require('./routers/yiweixin');
 for (var i = 0; i < yiweixin.length; i++) {
   app.use(yiweixin[i]);
+};
+
+var adminRouters  = require('./routers/admin');
+
+app.use('/admin', admin);
+for (var i = 0; i < adminRouters.length; i++) {
+  app.use('/admin', adminRouters[i]);
 };
 
 // --------------- app -----------------------

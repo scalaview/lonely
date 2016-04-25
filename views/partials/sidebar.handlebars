@@ -1,0 +1,19 @@
+<ul class="nav nav-sidebar">
+  <li><a href="/admin/trafficplans">流量套餐</a></li>
+  <li><a href="/admin/trafficgroups">套餐分组</a></li>
+</ul>
+
+<script type="text/javascript">
+$(function(){
+  $("#siderbar li a").each(function(i, e) {
+    var link = $(e).attr("href"),
+        regexLink = '^' + link + "[\/|\?]\?.*"
+    if(link !== '#' || link !== ''){
+      if(window.location.pathname.match(regexLink)){
+        $(e).parent().addClass("active")
+      }
+    }
+  })
+})
+</script>
+

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>星客万维</title>
+  {{{css "admin"}}}
+</head>
+<body>
+  {{{js "admin"}}}
+  <div class="container-fluid">
+    <div class="row">
+      {{#if info}}
+        {{ successTips info }}
+      {{else}}
+        {{ errTips err }}
+      {{/if}}
+      {{{body}}}
+    </div>
+  </div>
+</body>
+</html>
