@@ -9,6 +9,15 @@
     <div class="llb">
     </div>
     <div class="subimts"><a>充值</a></div>
+    {{#iflt 190 customer.id }}
+      <div class="row">
+        <div class="col-xs-12">
+          <span style="color:HotPink; font-size: 23px;">充值流量长按二维码关注：</span>
+        </div>
+        <img class="img-response col-xs-12" src="/images/scan-qcode.jpg">
+      </div>
+    {{/iflt}}
+
     <div class="careful">
       <h4>广东移动省内通用的注意事项为：</h4>
       <p>
